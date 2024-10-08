@@ -17,6 +17,7 @@ body,html{
     justify-content: center;
     display: flex;
     padding: 20px;
+    overflow: hidden;
 
 }
 
@@ -24,58 +25,59 @@ body,html{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     /*Important!*/
-    position: relative;
 }
 
-.card-container img {
-    width: 100px; /* Initial size of the SVGs */
-    height: auto; /* Maintain aspect ratio */
-    position: absolute; /* Positioning the SVGs */
-    overflow: hidden; /* Hide any overflowing parts */
+.card-container .svg {
+    width: 50%; 
+    height: auto;
+    position: absolute; 
+    overflow: hidden; 
+    z-index: 1; 
 }
 
 .circle-top-left {
-    top: -25px; /* Move it up, adjust as needed */
-    left: -25px; /* Move it to the left, adjust as needed */
+    top: -250px; /* Move it up to show part of the circle */
+    left: -50px; /* Move it left */
 }
 
-.circle-bottom {
-    bottom: -25px; /* Move it down */
-    left: -25px; /* Move it to the left, adjust as needed */
+.circle-bottom-right {
+    bottom: -400px; /* Move it down */
+    right: -200px; /* Move it right */
+    
 }
 
 .card{
     max-width: 350px;
     width: 100%;
     background-color: white;
-    border-radius: 15px;
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
     -ms-border-radius: 15px;
     -o-border-radius: 15px;
+    border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     text-align: center;
     z-index: 1000;
 }
 
-.card .card-header img{
-    border-radius: 15px 15px 0 0;
+.card .card-header .image-header{
     -webkit-border-radius: 15px 15px 0 0;
     -moz-border-radius: 15px 15px 0 0;
     -ms-border-radius: 15px 15px 0 0;
     -o-border-radius: 15px 15px 0 0;
+    border-radius: 15px 15px 0 0;
 }
 
-.card .card-content img{
-    border-radius: 50%;
+.card .card-content .profile-pic{
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
+    border-radius: 50%;
     border: 4px solid white;
     margin-top: -48px;
 }
@@ -115,10 +117,37 @@ body,html{
     letter-spacing: 1.3px;
 }
 
-@media screen and (width: 320px) {
+@media screen and (min-width: 320px) {
+    .card-container{
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     .card {
-        max-width: 90%; 
+        max-width: 320px; 
         width: 100%;
+        overflow: hidden;
+        text-align: center;
+    }
+
+    .card-container .svg {
+        width: 50%; 
+        height: auto;
+        position: absolute; 
+        overflow: hidden; 
+        z-index: 1; 
+    }
+    
+    .circle-top-left {
+        top: -25vh; /* Move it up to show part of the circle */
+        left: -5vw; /* Move it left */
+    }
+    
+    .circle-bottom-right {
+        bottom: -40vh; /* Move it down */
+        right: -10vw; /* Move it right */
+        
     }
 }
-
